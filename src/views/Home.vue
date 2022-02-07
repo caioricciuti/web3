@@ -2,6 +2,7 @@
   <div class="alert">
     <Alert :show="metaMask.installed" />
     <HelpDialog />
+    <DisconnectDialog />
     <Wallet :address="metaMask.address" />
   </div>
 
@@ -28,6 +29,7 @@ import { mapState } from "vuex";
 import Alert from "../components/Alert.vue";
 import HelpDialog from "../components/HelpDialog.vue";
 import Wallet from "../components/Wallet.vue";
+import DisconnectDialog from "../components/DisconnectDialog.vue";
 export default {
   name: "Home",
   computed: {
@@ -37,6 +39,7 @@ export default {
     Alert,
     HelpDialog,
     Wallet,
+    DisconnectDialog,
   },
 };
 </script>

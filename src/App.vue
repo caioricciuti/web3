@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-app-bar density="compact" dark absolute>
+    <v-app-bar density="compact" absolute>
       <v-app-bar-title>Web3 | Caio Ricciuti</v-app-bar-title>
 
       <v-spacer></v-spacer>
@@ -16,7 +16,11 @@
 
       <v-btn @click="handleHelpDialog" color="primary" class="mr-3">Help</v-btn>
 
-      <v-divider v-show="metaMask.installed" inset vertical></v-divider>
+      <v-divider
+        v-show="!metaMask.connected && metaMask.installed"
+        inset
+        vertical
+      ></v-divider>
       <v-btn
         v-show="!metaMask.connected && metaMask.installed"
         class="mr-4 ml-5"
@@ -25,6 +29,15 @@
       >
         <v-icon left icon="mdi-wallet"></v-icon>
         <span>Connect Wallet</span>
+      </v-btn>
+      <v-btn
+        v-show="metaMask.connected"
+        class="mr-4 ml-5"
+        color="warning"
+        @click="handleDiconnectWallet"
+      >
+        <v-icon left icon="mdi-lan-disconnect"></v-icon>
+        <span>Disconnect Wallet</span>
       </v-btn>
     </v-app-bar>
 
@@ -44,21 +57,11 @@ export default {
     ...mapActions(["setMetaMask"]),
   },
   async mounted() {
-    console.log(window.ethereum.selectedAddress);
-    if (window.ethereum && window.ethereum.selectedAddress === null) {
+    if (window.ethereum) {
       this.$store.dispatch("setMetaMask", {
         installed: true,
         connected: false,
         address: null,
-        amout: null,
-      });
-    }
-    if (window.ethereum.selectedAddress) {
-      this.$store.dispatch("setMetaMask", {
-        installed: true,
-        connected: true,
-        address: window.ethereum.selectedAddress,
-        amout: null,
       });
     }
   },
@@ -79,6 +82,13 @@ export default {
             amout: null,
           });
         }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async handleDiconnectWallet() {
+      try {
+        this.$store.dispatch("setDisconnectDialog", true);
       } catch (error) {
         console.log(error);
       }

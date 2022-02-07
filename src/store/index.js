@@ -10,6 +10,7 @@ export default createStore({
       amout: null,
     },
     helpDialog: false,
+    disconnectDialog: false,
   },
   mutations: {
     SET_METAMASK(state, metaMask) {
@@ -18,6 +19,9 @@ export default createStore({
     SET_HELP_DIALOG(state, helpDialog) {
       state.helpDialog = helpDialog;
     },
+    SET_DISCONNECT_DIALOG(state, disconnectDialog) {
+      state.disconnectDialog = disconnectDialog;
+    },
   },
   actions: {
     setMetaMask({ commit }, metaMask) {
@@ -25,6 +29,9 @@ export default createStore({
     },
     setHelpDialog({ commit }, helpDialog) {
       commit("SET_HELP_DIALOG", helpDialog);
+    },
+    setDisconnectDialog({ commit }, disconnectDialog) {
+      commit("SET_DISCONNECT_DIALOG", disconnectDialog);
     },
   },
   modules: {},

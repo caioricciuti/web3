@@ -1,24 +1,43 @@
-# web3
+# Web 3 | Caio Ricciuti
 
-## Project setup
+## Clone Project
+
+```
+git clone ...
+```
+
+### Install Dependencies
+
 ```
 yarn install
+or
+npm i
 ```
 
-### Compiles and hot-reloads for development
+### Start developement server
+
 ```
-yarn serve
+yarn dev
+or
+npm dev
 ```
 
-### Compiles and minifies for production
+### Build
+
 ```
 yarn build
+or
+npm build
 ```
 
 ### Lints and fixes files
+
 ```
 yarn lint
+or
+npm lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

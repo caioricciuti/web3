@@ -5,7 +5,7 @@
 
       <v-spacer></v-spacer>
       <v-btn
-        href="http://github.com/caioricciuti"
+        href="https://github.com/caioricciuti/web3"
         target="_blank"
         class="mr-4 ml-5"
         icon="mdi-github"

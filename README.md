@@ -3,7 +3,7 @@
 ## Clone Project
 
 ```
-git clone ...
+git clone https://github.com/caioricciuti/web3.git
 ```
 
 ### Install Dependencies
